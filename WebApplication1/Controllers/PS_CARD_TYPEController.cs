@@ -10,7 +10,11 @@ namespace WebApplication1.Controllers
 {
     public class PS_CARD_TYPEController : Controller
     {
-      
+        PS_CARD_TYPE_DataAccessLayer pS_CARD_TYPE_DataAccessLayer = null;
+        public PS_CARD_TYPEController(PS_CARD_TYPE_DataAccessLayer c)
+        {
+            pS_CARD_TYPE_DataAccessLayer = c;
+        }
         [Authorize]
         public IActionResult Index()
         {
