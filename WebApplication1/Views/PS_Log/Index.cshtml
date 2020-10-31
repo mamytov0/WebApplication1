@@ -1,0 +1,116 @@
+﻿@model IEnumerable<WebApplication1.Models.PS_Log>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h4>Логи</h4>
+@*<input type="text" id="myInput" onkeyup="tableSearch" placeholder="Input Key word for searching" />*@
+@using (Html.BeginForm(FormMethod.Post))
+{
+
+    <p style="margin-top:20px">
+        <div class="form-group">
+            <div class="form-group">
+                <label for="Date_start" class="control-label">Отображение логов с:   </label>
+                <input type="date" name="Date_start" value="@ViewBag.Date_start" />
+            </div>
+            <div class="form-group">
+                <label for="Date_finish" class="control-label">Отображение логов по:</label>
+                <input type="date" name="Date_finish" value="@ViewBag.Date_finish" />
+            </div>
+        </div>
+        <input type="submit" value="Вывод логов по периоду" class="btn btn-secondary btn-sm" />|
+        <a asp-action="Index" class="btn btn-danger"> Очистить список логов</a>
+
+    </p>
+
+
+
+}
+
+@using (Html.BeginForm("GetFile", "PS_Log", FormMethod.Post))
+{<div class="layer2">
+        <input type="date" name="start" value="@ViewBag.start1" />
+        <input type="date" name="finish" value="@ViewBag.finish1">
+        <button type="submit" value="Generate File" class="btn btn-info" name="btn"><i class="fa fa-download" aria-hidden="true"></i> Создать Отчет</button>
+
+    </div>
+}
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.System_Req)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Request)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Response)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Target_Path)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INS_Date)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.AMNT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ACC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cur)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.System_Req)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Request)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Response)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Target_Path)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.INS_Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AMNT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cur)
+                </td>
+
+
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
