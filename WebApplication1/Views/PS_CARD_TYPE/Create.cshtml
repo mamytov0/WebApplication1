@@ -1,0 +1,58 @@
+﻿@model Paid_System_PS_.Models.PS_CARD_TYPE
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Добавить новую карту</h1>
+
+@*<h4>PS_CARD_TYPE</h4>*@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="ID" class="control-label"></label>
+                <input asp-for="ID" class="form-control" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="NAME" class="control-label"></label>
+                <input asp-for="NAME" class="form-control" />
+                <span asp-validation-for="NAME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FIRSTSYMBOLS" class="control-label"></label>
+                <input asp-for="FIRSTSYMBOLS" class="form-control" />
+                <span asp-validation-for="FIRSTSYMBOLS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SERVICEADRESS" class="control-label"></label>
+                <input asp-for="SERVICEADRESS" class="form-control" />
+                <span asp-validation-for="SERVICEADRESS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LOGIN" class="control-label"></label>
+                <input asp-for="LOGIN" class="form-control" />
+                <span asp-validation-for="LOGIN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PASS" class="control-label"></label>
+                <input asp-for="PASS" class="form-control" />
+                <span asp-validation-for="PASS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cоздать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Bозврат к общему списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

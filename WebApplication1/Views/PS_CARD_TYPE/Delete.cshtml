@@ -1,0 +1,58 @@
+﻿@model Paid_System_PS_.Models.PS_CARD_TYPE
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+    <h3>
+        Вы уверены, что хотите удалить это?
+    </h3>
+<div>
+    <h4>PS_CARD_TYPE</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FIRSTSYMBOLS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FIRSTSYMBOLS)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SERVICEADRESS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SERVICEADRESS)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LOGIN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LOGIN)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PASS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PASS)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Возврат к общему списку</a>
+    </form>
+</div>
