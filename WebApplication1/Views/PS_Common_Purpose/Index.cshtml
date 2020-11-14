@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Paid_System_PS_.Models.PS_Common_purpose>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Общее Назначение</h1>
+
+<p>
+    <a asp-action="Create">Cоздать </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code_for_service)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Decription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Typeof_Card)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Code_for_service)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Decription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Card)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Данные о</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Удалить</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
