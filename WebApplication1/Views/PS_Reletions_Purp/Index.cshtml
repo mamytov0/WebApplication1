@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Paid_System_PS_.Models.PS_Reletions_Purp>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <h1>Отношения Назначений</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service_Purp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Common_Serv)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.service_p)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.common_s)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Данные о</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Удалить</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
